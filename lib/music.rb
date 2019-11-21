@@ -18,9 +18,9 @@ class Music
     self.all.clear
   end
   
-  # def self.create(name)
-  #   artist = Artist.new(name)
-  #   artist.save
-  #   artist
-  # end
+  def self.create(name)
+    instance = self.new(name)
+    instance.save
+    instance
+  end
 end
