@@ -2,7 +2,7 @@ class Music
   attr_accessor :name
   @@all = []
   
-  def initialize(name)
+  def initialize(name,artist_obj=nil)
     @name = name
   end
   
@@ -23,4 +23,5 @@ class Music
     instance.save
     instance
   end
+
 end
