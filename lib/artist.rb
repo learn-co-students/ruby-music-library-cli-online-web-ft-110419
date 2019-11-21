@@ -1,10 +1,16 @@
 require_relative "./music.rb"
+require 'pry'
 class Artist < Music
   attr_accessor :songs
   
   def initialize(name)
     super
     @songs = []
+  end
+  
+  def songs
+    @songs
+    # Song.all.select {|song| song.artist == self }
   end
   
   def add_song(song)
