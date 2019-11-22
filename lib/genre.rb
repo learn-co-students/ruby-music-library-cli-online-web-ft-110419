@@ -1,4 +1,3 @@
-require_relative "./music.rb"
 class Genre < Music
   attr_accessor :songs
   

@@ -1,5 +1,3 @@
-require_relative "./music.rb"
-require 'pry'
 class Artist < Music
   attr_accessor :songs
   
