@@ -1,10 +1,30 @@
 class Genre < Music 
   extend Concerns::Findable
+  attr_accessor :name
   attr_reader :songs
+  @@all = []
   
   def initialize(name)
-    super 
+    @name = name
     @songs = []
+  end
+  
+  def save
+    @@all << self 
+  end
+  
+  def self.all 
+    @@all 
+  end
+  
+  def self.create(name)
+    new = self.new(name) 
+    new.save 
+    new
+  end
+  
+  def self.destroy_all
+    @@all = []
   end
   
   def artists 

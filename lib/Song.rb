@@ -1,5 +1,6 @@
-class Song < Music
-  attr_accessor :genre, :artist
+class Song
+  attr_accessor :genre, :artist, :name
+  @@all = []
   extend Concerns::Findable
   
   def initialize(name, artist = nil, genre = nil) 
@@ -18,6 +19,24 @@ class Song < Music
     if !@genre.songs.include?(self)
       @genre.songs << self
     end
+  end
+  
+  def save
+    @@all << self 
+  end
+  
+  def self.all 
+    @@all 
+  end
+  
+  def self.create(name)
+    new = self.new(name) 
+    new.save 
+    new
+  end
+  
+  def self.destroy_all
+    @@all = []
   end
   
   def self.new_from_filename(filename)
