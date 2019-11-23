@@ -15,6 +15,7 @@ class MusicLibraryController
     puts "To play a song, enter 'play song'."
     puts "To quit, type 'exit'."
     puts "What would you like to do?"
+    puts "Welcome to your music library!"
     input = gets.chomp
     case input 
       when "list artists" || "List artists"
@@ -32,7 +33,6 @@ class MusicLibraryController
     end
     while input != "exit" && input != "Exit"
       puts "Welcome to your music library!"
-      puts "What would you like to do?"
       input = gets.chomp
     end
   end
