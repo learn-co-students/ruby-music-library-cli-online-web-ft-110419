@@ -9,3 +9,6 @@ module Concerns::Findable
   end
   
 end
+
+# no self
+# class variables 
