@@ -25,4 +25,9 @@ class Song < Music
     song = Song.new(song_name,artist,genre)
   end
 
+  def self.create_from_filename(file_name)
+    song = self.new_from_filename(file_name)
+    @@all << song
+  end
+  
 end
