@@ -6,7 +6,7 @@ class MusicImporter
   end
   
   def files
-    
+   Dir["#{@path}/*.mp3"].collect {|f| f[21..-1]}
   end
 
 end
