@@ -1,3 +1,4 @@
+require "pry"
 class Artist
   attr_accessor :name ,:songs
 
@@ -14,7 +15,14 @@ class Artist
         song.artist = self
         self.songs << song
       end
-
+  end
+  def artist_songs
+    Song.all.find_all { |song| song.artist == self}
+  end
+  def genres
+   artist_songs.map do |song|
+    song.genre
+  end.uniq
   end
   def self.all
     @@all
