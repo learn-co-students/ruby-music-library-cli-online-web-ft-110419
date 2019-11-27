@@ -21,7 +21,7 @@ class MusicLibraryController
   
   def list_songs
     sorted_files = songs_files.sort{|a,b| a.split("-")[1].strip <=> b.split("-")[1].strip}
-    songs_list = sorted_files.map.with_index {|f,i| "#{i+1}. #{f.match(/[A-Z].*(?=\.mp3)/)}"}
+    songs_list = sorted_files.map.with_index(1) {|f,i| "#{i}. #{f.match(/[A-Z].*(?=\.mp3)/)}"}
     
     for song in songs_list
       puts song
@@ -29,11 +29,8 @@ class MusicLibraryController
   end
   
   def list_artists
-    artists = songs_files.map {|file| file.split("-")[0].strip}
-    binding.pry
-    for artist in artists
-      puts artist
-    end
+    artists = songs_files.map {|file| "#{file.match(/[A-Z].*(?=\s[-])/)}".match(/[A-Z].*(?=\s[-])/).to_s}.uniq
+    artists.sort {|a,b| a <=> b }.each.with_index(1) {|artist,i| puts "#{i}. #{artist}"}
   end
   
 end
