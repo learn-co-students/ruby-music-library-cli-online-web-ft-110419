@@ -1,4 +1,4 @@
-class MusicLibraryController
+ class MusicLibraryController
   attr_accessor :music_importer,:songs_files
   def initialize(path='./db/mp3s')
     @music_importer = MusicImporter.new(path)
@@ -34,5 +34,13 @@ class MusicLibraryController
     genres.sort {|a,b| a <=> b }.each.with_index(1) {|genre,i| puts "#{i}. #{genre}"  }
   end
   
-  
+  def list_songs_by_artist
+    puts "Please enter the name of an artist:"
+    input = gets.chomp
+    binding.pry
+  end
+    
 end
+  
+  
+  

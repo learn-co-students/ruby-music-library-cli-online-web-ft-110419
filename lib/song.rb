@@ -20,7 +20,7 @@ class Song < Music
   end
   
   def self.new_from_filename(file_name)
-    artist_name,song_name,genre_name = file_name.split("-").map{|f|f.strip}
+    artist_name,song_name,genre_name = file_name.split(/\s-/).map{|f|f.strip}
     artist_name = artist_name.split("/").last
     
     artist = Artist.find_or_create_by_name(artist_name)
