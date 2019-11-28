@@ -30,8 +30,12 @@ class MusicLibraryController
   
   def list_artists
     artists = Artist.all.map{|artist| artist.name}
-    # artists = songs_files.map {|file| "#{file.match(/[A-Z].*(?=\s[-])/)}".match(/[A-Z].*(?=\s[-])/).to_s}.uniq
-    artists.sort {|a,b| a <=> b }.each.with_index(1) {|artist,i| puts "#{i}. #{artist}"}
+    sorted_artist = artists.sort {|a,b| a <=> b }.each.with_index(1) {|artist,i| puts "#{i}. #{artist}"  }
+    # artist_list = sorted_artist.map.with_index() {|artist,i| "#{i+1}. #{artist}" }
+
+    # for artist in artist_list
+    #   puts artist
+    # end
   end
   
 end
