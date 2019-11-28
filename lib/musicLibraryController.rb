@@ -37,7 +37,26 @@
   def list_songs_by_artist
     puts "Please enter the name of an artist:"
     input = gets.chomp
-    binding.pry
+    artist_songs = Song.all.select{|song|song.artist.name == input}
+    artist_songs.sort {|a,b| a.name <=> b.name }.each.with_index(1){|song,i| puts "#{i}. #{song.name} - #{song.genre.name}"}
+  end
+  
+  def list_songs_by_genre
+    puts "Please enter the name of a genre:"
+    input = gets.chomp
+    genre_songs = Song.all.select{|song|song.genre.name == input}
+    genre_songs.sort {|a,b| a.name <=> b.name }.each.with_index(1){|song,i| puts "#{i}. #{song.artist.name} - #{song.name}"}
+  end
+  
+  def play_song
+    puts "Which song number would you like to play?"
+    input = gets.chomp
+    if !input.zero?
+      index = input - 1
+      binding.pry
+    end
+    # puts "Playing Larry Csonka by Action Bronson"
+    
   end
     
 end
