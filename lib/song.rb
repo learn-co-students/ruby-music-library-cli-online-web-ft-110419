@@ -22,6 +22,7 @@ class Song < Music
   def self.new_from_filename(file_name)
     artist_name,song_name,genre_name = file_name.split("-").map{|f|f.strip}
     artist_name = artist_name.split("/").last
+    
     artist = Artist.find_or_create_by_name(artist_name)
     genre = Genre.find_or_create_by_name(genre_name[0...-4])
     song = Song.new(song_name,artist,genre)
