@@ -26,8 +26,8 @@ class Artist
     
     def self.create(name)
         artist = Artist.new(name)
-        @@all << name 
-        name 
+        @@all << artist
+        artist
     end 
 
     def songs 
