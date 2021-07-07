@@ -1,5 +1,5 @@
 require "spec_helper"
-
+require "pry"
 describe "MusicLibraryController - CLI Methods" do
   let(:music_library_controller) { MusicLibraryController.new("./spec/fixtures/mp3s") }
   let(:other_music_library_controller) { MusicLibraryController.new("./spec/fixtures/other_mp3s") }
@@ -88,11 +88,11 @@ describe "MusicLibraryController - CLI Methods" do
 
       allow(music_library_controller).to receive(:gets).and_return("Real Estate")
 
+      # binding.pry
       expect($stdout).to receive(:puts).with("Please enter the name of an artist:")
       expect($stdout).to receive(:puts).with("1. Green Aisles - country")
       expect($stdout).to receive(:puts).with("2. It's Real - hip-hop")
       expect($stdout).to receive(:puts).with("3. Wonder Years - dream pop")
-
       music_library_controller.list_songs_by_artist
     end
 
